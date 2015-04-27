@@ -15,6 +15,7 @@ class BookList {
    def addBook(book : Book) : Unit = {
       // write code to add the book to 'list'.
       // hint: Use the list add (+=) method
+      list += book
    }
 
    def getNumberOfBooks() : Int = list.length
@@ -22,12 +23,19 @@ class BookList {
       // using it for testing purposes
 
    def printList() : Unit = {
+       list.foreach(println)
       // write code to printList()
       // you should also show how to use the method in your main
+      list
    }
 
    def getTitlesByAuthor(author : String) : MutableList[String] = {
       val byAuthorList = MutableList[String]()
+       for (n <- list)
+        if (n.author == Authorofthebook){
+        var a = n.title
+        byAuthorList += a
+    }
       // return a list of all titles that are written by author
 
 
@@ -36,6 +44,13 @@ class BookList {
 
    def getTitlesContaining(substring : String) : MutableList[String] = {
       val titles = MutableList[String]()
+       for (n <- list)
+        if (n.title == substring){
+        titles += n.title
+         }
+          else if (n.author == substring){
+           titles += n.title
+    }
       // return a list of all titles that contain a substring
 
       titles
@@ -44,6 +59,14 @@ class BookList {
    def getBooksBetweenYears(firstYear : Int, lastYear : Int) : MutableList[Book] = {
      
       val betweenYearList = MutableList[Book]()
+      val betweenYearList = MutableList[String]()
+      for (p <- firstYear to lastYear){
+      for (n <- list){
+      if (n.year == p){
+      betweenYearList += n.title
+         }
+       }
+     }
       // get all books between two years
 
 
